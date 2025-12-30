@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmaOnco Visual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Work+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Animations that extend Tailwind */
+        @keyframes floatPattern {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, -20px) scale(1.05); }
+            66% { transform: translate(20px, -10px) scale(0.95); }
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes successBounce {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+        }
+
+        .animate-float-pattern {
+            animation: floatPattern 20s ease-in-out infinite;
+        }
+
+        .animate-shimmer {
+            animation: shimmer 2s infinite;
+        }
+
+        .animate-success-bounce {
+            animation: successBounce 1s ease-out;
+        }
+
+        /* 3D Flip Utilities */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Bebas Neue"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                        main: ['"Work Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        antimetabolitos: '#0047AB',
+                        'adn-arn': '#50C878',
+                        antimitoticos: '#8B5CF6',
+                        hormonales: '#FF7F50',
+                        inmuno: '#40E0D0',
+                    }
+                }
+            }
+        }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body class="bg-[#FAF9F6] text-gray-800 min-h-screen overflow-x-hidden relative font-main">
+    <div id="root"></div>
+</body>
+</html>
